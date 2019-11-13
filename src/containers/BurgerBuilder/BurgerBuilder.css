@@ -1,0 +1,24 @@
+.Container{
+    display: flex;
+    justify-content: flex-start;
+}
+.Items{
+    width: 40%;
+    margin-left: 40px;
+}
+.Items2{
+    width: 60%;
+}
+
+@media screen and (max-width: 600px){
+    .Container{
+        flex-direction: column-reverse;
+    }
+    .Items{
+        width: 100%;
+        margin: auto;
+    }
+    .Items2{
+        width: 100%;
+    }
+}

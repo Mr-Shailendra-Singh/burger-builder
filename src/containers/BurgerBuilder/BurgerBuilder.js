@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-
+import classes from './BurgerBuilder.css';
 import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -82,18 +82,23 @@ const burgerBuilder = props => {
 
   if (ings) {
     burger = (
-      <Aux>
-        <Burger ingredients={ings} />
-        <BuildControls
-          ingredientAdded={onIngredientAdded}
-          ingredientRemoved={onIngredientRemoved}
-          disabled={disabledInfo}
-          purchasable={updatePurchaseState(ings)}
-          ordered={purchaseHandler}
-          isAuth={isAuthenticated}
-          price={price}
-        />
-      </Aux>
+      <div className={classes.Container}>
+        <div className={classes.Items}>
+          <BuildControls
+            ingredientAdded={onIngredientAdded}
+            ingredientRemoved={onIngredientRemoved}
+            disabled={disabledInfo}
+            purchasable={updatePurchaseState(ings)}
+            ordered={purchaseHandler}
+            isAuth={isAuthenticated}
+            price={price}
+          />
+        </div>
+        <div className={classes.Items2}>
+          <Burger ingredients={ings} />
+        </div>
+        
+      </div>
     );
     orderSummary = (
       <OrderSummary
